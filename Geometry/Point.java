@@ -1,8 +1,13 @@
 public class Point {
-  private double x;
-  private double y;
+  private Double x;
+  private Double y;
 
-  public Point(double x, double y){
-    return null;
+  public Point(Double x, Double y){
+    this.x = x;
+    this.y = y;
+  }
+
+  public String toString(){
+    return "x: " + Double.toString(this.x) + " y: " + Double.toString(this.y);
   }
 }

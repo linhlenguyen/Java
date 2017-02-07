@@ -12,7 +12,7 @@ public class Circle extends Shape {
   }
 
   public String toString(){
-    return "Origin: " + this.point.toString() + " Radius: " + Double.toString(this.radius);
+    return "Origin: " + this.origin.toString() + " Radius: " + Double.toString(this.radius);
   }
 
   public Double getArea(){

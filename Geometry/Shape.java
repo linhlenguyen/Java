@@ -6,8 +6,8 @@ public abstract class Shape{
       return "No descriptions";
   }
 
-  public Double getArea();{
-      return -1;
+  public Double getArea(){
+      return -1.0;
   }
 
   public String showArea(){
@@ -17,11 +17,11 @@ public abstract class Shape{
   }
 
   public Double getVolume(){
-      return -1;
+      return -1.0;
   }
 
   public String showVolume(){
-    if (getVolume() == 0)
+    if (getVolume() < 0)
       return "Not applicable";
     else return Double.toString(getVolume());
   }

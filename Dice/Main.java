@@ -24,7 +24,7 @@ public class Main{
         return new Dice(Integer.parseInt(sideStr));
       }
       else {
-        System.out.println("Not an integer!");
+        System.out.println("Not a valid integer!");
       }
     }
   }
@@ -36,7 +36,7 @@ public class Main{
       if (tryParseInt(tStr)){
         int t = Integer.parseInt(tStr);
         if (t % myDice.numberOfSide != 0){
-          System.out.println("Number of throw must be multiple of side!");
+          System.out.println("Number of throw must be multiples of side!");
           continue;
         }
         else {
@@ -44,7 +44,7 @@ public class Main{
         }
       }
       else {
-        System.out.println("Not an integer!");
+        System.out.println("Not a valid integer!");
       }
     }
   }
@@ -58,7 +58,8 @@ public class Main{
 
   private static boolean tryParseInt(String value) {
      try {
-         Integer.parseInt(value);
+         int i = Integer.parseInt(value);
+         if (i <= 0) return false;
          return true;
       } catch (NumberFormatException e) {
          return false;
