@@ -1,11 +1,21 @@
-import Circle.java;
+public class Cylinder extends Shape  {
+  public Circle circle;
+  public Double height;
 
-public class Cylinder {
-  private Point origin;
-  private double radius;
-  private double height;
+  public Cylinder(Double x, Double y, Double radius, Double height){
+    this.circle = new Circle(x, y, radius);
+    this.height = height;
+  }
 
-  public Cylinder(double x, double y, double radius, double height){
-    return null;
+  public String getName(){
+    return "Cylinder";
+  }
+
+  public String toString(){
+    return this.circle.toString() + " Height: " + Double.toString(this.height);
+  }
+
+  public Double getVolume(){
+    return this.circle.getArea() * this.height;
   }
 }

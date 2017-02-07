@@ -1,30 +1,54 @@
+import java.io.*;
+import java.util.*;
+
 public class MeanAndVariance {
 
     public static void main(String[] args) {
-        // Prints "Hello, World" to the terminal window.
-        System.out.println("Hello, World");
+      try (Scanner scanner = new Scanner(new File("myNumbers.in"));){
+          List<Double> nums = getArgs(scanner);
+          scanner.close();
+          System.out.println("Input = " + listToString(nums));
+          System.out.println("Mean = " + Double.toString(calculateMean(nums)));
+          System.out.println("Variances = " + Double.toString(calculateVariance(nums)));
+      } catch (FileNotFoundException e){
+          System.out.println("File not found!");
+      }
     }
 
-    public static double[] getArgs(int nargs, Scanner inputStream)
+    public static List<Double> getArgs(Scanner inputStream)
     {
-      return [];
+      List<Double> nums = new ArrayList<Double>();
+      while (inputStream.hasNextDouble()){
+        nums.add(inputStream.nextDouble());
+      }
+      return nums;
     }
 
-    public static calculateSum(double[] nums){
-        double sum = 0;
-        for (int i = 0; i < nums.length; i++){
-            sum += nums[i];
+    public static String listToString(List<Double> nums){
+        String r = "";
+        for (int i = 0; i < nums.size(); i++){
+          r += Double.toString(nums.get(i)) + " ";
         }
-        return sum
+        return r;
     }
 
-    public static double calculateVariance(double[] nums){
-        double mean = calculateMean(nums);
-        double[] differences = nums.map(i -> (i - mean)^2);
-        return calculateSum(differences)/(differences.length -1);
+    public static Double calculateSum(List<Double> nums){
+        Double sum = 0.0;
+        for (int i = 0; i < nums.size(); i++){
+          sum += nums.get(i);
+        }
+        return sum;
     }
 
-    public static double calculateMean(double[] nums){
-        return calculateSum(nums)/nums.length;
+    public static Double calculateVariance(List<Double> nums){
+        Double mean = calculateMean(nums);
+        for (int i = 0; i < nums.size(); i++){
+            nums.set(i,Math.pow((nums.get(i) - mean),2));
+        }
+        return calculateSum(nums)/(nums.size() -1);
+    }
+
+    public static Double calculateMean(List<Double> nums){
+        return calculateSum(nums)/nums.size();
     }
 }

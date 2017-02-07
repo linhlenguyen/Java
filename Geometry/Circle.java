@@ -1,10 +1,21 @@
-import "Point.java";
+public class Circle extends Shape {
+  public Point origin;
+  public Double radius;
 
-public class Circle {
-  private Point point;
-  private doulbe radius;
+  public Circle (Double x, Double y, Double radius){
+    this.origin = new Point(x, y);
+    this.radius = radius;
+  }
 
-  public Circle (double x, double y, double radius){
-    return null;
+  public String getName(){
+    return "Circle";
+  }
+
+  public String toString(){
+    return "Origin: " + this.point.toString() + " Radius: " + Double.toString(this.radius);
+  }
+
+  public Double getArea(){
+    return Math.PI * Math.pow(this.radius, 2);
   }
 }
