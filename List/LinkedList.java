@@ -7,14 +7,14 @@ public class LinkedList<T extends Comparable<T>>{
 
   public void addItem(T v){
     if (this.head == null){
-      this.head = new Node(v);
+      this.head = new Node<T>(v);
     }
     else {
       Node<T> current = this.head;
       Node<T> next = current.getNext();
       while (true){
         if (next == null || (current.getValue().compareTo(v) <= 0 && next.getValue().compareTo(v) > 0)){
-            Node<T> newNode = new Node(v);
+            Node<T> newNode = new Node<T>(v);
             current.setNext(newNode);
             newNode.setNext(next);
             break;
