@@ -22,9 +22,4 @@ public class Node<T extends Comparable<T>>{
   public String toString(){
     return String.valueOf(value);
   }
-
-  public Node<T> addNext(T v){
-    this.next = new Node(v);
-    return this.next;
-  }
 }

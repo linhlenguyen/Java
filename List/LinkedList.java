@@ -25,6 +25,29 @@ public class LinkedList<T extends Comparable<T>>{
     }
   }
 
+  public void remove(T v){
+    if (this.head == null){
+      return;
+    }
+
+    Node<T> current = this.head;
+    Node<T> next;
+    while(current != null){
+      next = current.getNext();
+      //Removal from head
+      if (current == this.head && current.getValue() == v){
+        this.head = current.getNext();
+        current = this.head;
+        continue;
+      }
+
+      if (next != null && next.getValue() == v){
+        current.setNext(next.getNext());
+      }
+      current = current.getNext();
+    }
+  }
+
   public String printList(){
     if (this.head == null){
       return "[]";

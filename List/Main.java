@@ -12,6 +12,8 @@ public class Main{
     intList.addItem(14);
     intList.addItem(8);
     intList.addItem(51);
+    intList.remove(1);
+    intList.remove(14);
 
     System.out.println(stringList.printList());
     System.out.println(intList.printList());
